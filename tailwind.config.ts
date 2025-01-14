@@ -3,8 +3,6 @@ import daisyui from "daisyui"
 
 export default {
   content: [
-    // "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    // "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/posts/**/*.{js,ts,jsx,tsx,mdx}",
   ],
@@ -19,4 +17,21 @@ export default {
   plugins: [
     daisyui,
   ],
+  daisyui: {
+    themes: [
+      {
+        mytheme: {
+          primary: '#28536B', // Set your custom primary color here
+          secondary: '#7EA8BE', // Optional: set other theme colors
+          accent: '82B26C',
+          neutral: '#C2948A',
+          'base-100': '11232C',
+          info: '#3ABFF8',
+          success: '#36D399',
+          warning: '#FBBD23',
+          error: '#F87272',
+        },
+      },
+    ],
+  },
 } satisfies Config;

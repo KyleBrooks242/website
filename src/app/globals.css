@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -12,7 +12,7 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   color: var(--foreground);
@@ -26,6 +26,25 @@ body {
     @apply my-4 pl-8 
   }
 }
+
+/* } MAIN CONTENT STYLING */
+
+.h1 {
+  @apply text-4xl font-medium tracking-tight mt-6 mb-3;
+}
+
+.h2 {
+  @apply text-xl font-medium tracking-tight mt-6 mb-3;
+}
+.project.link {
+  @apply text-4xl font-medium
+}
+
+/* END MAIN CONTENT STYLING  */
+
+
+
+
 
 /* Anything under the .prose block applies to the blog posts only */
 .prose h1 {
