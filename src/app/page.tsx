@@ -1,0 +1,23 @@
+
+export default function Home() {
+  return (
+    <div className="grid grid-rows-[20px_1fr_20px] justify-items-center min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+      <h1>Welcome!</h1>
+      <p>
+        If you have stumbled upon this page, chances are you are a potential employer, looking to hire a certain Kyle Brooks. You noticed he was bold enough
+        to include his website in his LinkedIn, so you figured you'd go and take a look. Do not let the appearances of this page deceive you. What he 
+        lacks in design taste, he more than makes up for with his willingness to learn and natural charm. So please-- take a look around, but be merciful in your 
+        judgements. That is all I can ask.
+      </p>
+      <p>
+        The goal of this webpage is to be a place for me to experiment and learn. Everything you see, unless otherwise noted, has been crafted from scratch by me. Of course,
+        these days, nothing is written 'from scratch'-- There are countless frameworks, libraries, etc. that can be dropped into a project to give it some shape and structure.
+        The problem I run into with that approach is that it turns everything into a black box. I find that in order for me to really 'get' something and be able to use it,
+        I need to know all the details.  So, for the purposes of learning, as painful as it may be, I will be trying to avoid any shortcuts that obfuscate what's really going on. 
+      </p>
+      <h1>Current Project: This website!</h1>
+      </main>
+    </div>
+  );
+}

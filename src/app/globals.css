@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  ul, ol {
+    list-style: revert;
+    @apply my-4 pl-8 
+  }
+}
+
+/* Anything under the .prose block applies to the blog posts only */
+.prose h1 {
+  @apply text-4xl font-medium tracking-tight mt-6 mb-3;
+}
+
+.prose h2 {
+  @apply text-xl font-medium tracking-tight mt-6 mb-3;
+}
+
+.prose a {
+  @apply underline text-green-600 hover:text-blue-800 visited:text-green-600
+}
