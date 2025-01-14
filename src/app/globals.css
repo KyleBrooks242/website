@@ -27,10 +27,24 @@ body {
   }
 }
 
+/* } MAIN CONTENT STYLING */
 
+.h1 {
+  @apply text-4xl font-medium tracking-tight mt-6 mb-3;
+}
+
+.h2 {
+  @apply text-xl font-medium tracking-tight mt-6 mb-3;
+}
 .project.link {
   @apply text-4xl font-medium
 }
+
+/* END MAIN CONTENT STYLING  */
+
+
+
+
 
 /* Anything under the .prose block applies to the blog posts only */
 .prose h1 {

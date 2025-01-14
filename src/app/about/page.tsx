@@ -1,8 +1,18 @@
+import Image from 'next/image';
+import profilePic from '../../../public/KyleAbout.jpg'
+
 export default async function About() {
     return (
       <div className="grid grid-rows-[20px_1fr_20px] justify-items-center min-h-screen p-8 pb-20  sm:p-20 font-[family-name:var(--font-geist-sans)]">
         <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-         <h1 className="header">About Me</h1>
+          <Image
+            className='self-center'
+            src={profilePic}
+            alt='Waiting for a bus in Soprabolzano'
+            width={300}
+            height={500}
+          />
+         <h1 className="h1">About Me</h1>
          <p>
             Hi. My name is Kyle. I was born in Easley, SC, and have spent the majority of my life in the south. I attended College of Charleston, receiving my B.S.
             in Computer Science in 2016. I've always enjoyed writing code, but I'm not someone who itches to write it constantly. At the end of the day, I consider it a job.

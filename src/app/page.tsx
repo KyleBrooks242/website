@@ -3,7 +3,7 @@ export default function Home() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] justify-items-center min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-      <h1>Welcome!</h1>
+      <h1 className='h1'>Welcome!</h1>
       <p>
         If you have stumbled upon this page, chances are you are a potential employer, looking to hire a certain Kyle Brooks. You noticed he was bold enough
         to include his website in his LinkedIn, so you figured you'd go and take a look. Do not let the appearances of this page deceive you. What he 

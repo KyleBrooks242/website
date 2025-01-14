@@ -14,27 +14,59 @@ For some reason the thought of creating a webpage has always been daunting to me
 Not only do I lack an eye for UX/UI, but I also find myself quicly overwhelmed by the sheer number of options out there.
 It's 'easy' to turn to something such as [Wix](https://www.wix.com/), [SquareSpace](https://www.squarespace.com/), or [WordPress](https://wordpress.com/), and there's nothing wrong
 with that at all. But for me, I want to do it all. I want to understand every piece of the puzzle that goes into building and deploying a webpage.
-What this normally results in is the following:
+What this normally results in is the following: 
 
 - Eagerly googling for tutorials on how to stand up a personal website
 - Decision paralysis trying to decide what libraries/frameworks to use
 - Finally make a decision, get 1/4 through a tutorial
 - Realize that in the 2 months since being published, everything in the tutorial is now out of date. Breaking changes result in some things working, others not.
 - Spending hours trying to reconcile how the tutorial did it verses how it now has to be done
-- Abandoning project and rationalyzing that I have too much real work to focus on
+- Abandoning project and rationalizing that I have too much real work to focus on
 
 **HOWEVER...** after being unexpectedly laid off a week ago, I figured what better way to get back out on the job market than by finally tackling this project, once and for all.
 
 ## The Stack
 
-For this project I decided to really challenge myself and work with a stack that is largely new to me. 
+I'm using the following stack for this project
 
-- Vercel
-- Next.js
-- Tailwind w/ DaisyUI
+- [Vercel](https://vercel.com)
+- [Next.js](https://nextjs.org)
+- [Tailwind](https://tailwindcss.com) and [DaisyUi](https://daisyui.com)
 
 ## Let's Get Started
 
-This post... well, the entire website, was tremendously inspired by [this blog post](https://maxleiter.com/blog/build-a-blog-with-nextjs-13) by Max Leiter. 
-I tried to not blatently rip off his design and only implement things I myself had written (no copy/pasting!) to ensure I understand how everything works--
- But when it comes to styling, all bets are off. 
+Before we begin- this post and the entire website were tremendously inspired by [this blog post](https://maxleiter.com/blog/build-a-blog-with-nextjs-13) by Max Leiter. 
+I tried not blatently rip off his design or copy/paste his code... but when it comes to styling, all bets are off! 
+
+Here's the approach I'm going to take:
+
+1. Stand up bare-bones app using `create-next-app`
+2. Create structure of website. DO NOT WORRY ABOUT DESIGN AT THIS STAGE
+3. Add some content. It doesn't have to be polished at this point.
+4. Add minimal style. Enough so it doesn't hurt to look at. 
+5. Deploy project 
+6. Iterate
+
+
+### Step 1: `create-next-app`
+
+This process feels almost identical to `create-react-app`. It was at this point I decided I'd give Tailwind a try, along with .mdx
+files for the blog posts (as prompted by the script). At this stage, I spent some time going over the next.js documentation, trying to familiarize myself with the basics. One thing
+that stood out to me very quickly as a bit annoying is the fact that every page has to be titled `page.[ext]`. Trying to get dummy content in every page led to 
+multiple `page.tsx` files open in VSCode and lots of editing of the wrong file. It's very convenient from an orginizational standpoint to have the file structure of the projecte
+emulate the website layout, but I would love the option to be able to define the names of pages per route (perhaps in `next.config.ts`?)
+
+## Step 2: Create Structure of Website
+
+I'd like to follow a pretty generic personal website structure 
+
+- Home Page:  General information 
+- Blog: The real meat of the website
+- Projects: Any projects I have worked/ am working on
+- About: Get to know me ( And my resume 😏 )
+- Contact: How to reach me
+
+
+
+
+
