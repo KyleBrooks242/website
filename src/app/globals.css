@@ -27,6 +27,11 @@ body {
   }
 }
 
+
+.project.link {
+  @apply text-4xl font-medium
+}
+
 /* Anything under the .prose block applies to the blog posts only */
 .prose h1 {
   @apply text-4xl font-medium tracking-tight mt-6 mb-3;
