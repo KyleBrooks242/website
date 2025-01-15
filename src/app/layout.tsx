@@ -15,7 +15,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-//TODO this needs to be replaced with my personal info
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
@@ -52,7 +51,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased main`}
       > 
         <Header/>
         {children}
