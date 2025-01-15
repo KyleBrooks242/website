@@ -15,11 +15,10 @@ export default async function Projects() {
                 className='self-center mx-3'
                 src={churdleImage}
                 alt='Churdle Word Game. A variant of Wordle'
-
                 height={350}
               />
             <Image
-                className='self-center mx-3'
+                className='self-center mx-3 opt-img'
                 src={churdleWin}
                 alt='Churdle winning screen'
                 height={350}
@@ -37,7 +36,7 @@ export default async function Projects() {
          <a className="project link" target="_blank" href="https://github.com/KyleBrooks242/workout-app" rel="noopener noreferrer">Workout App</a>
          <div className='flex flex-row self-center justify-items-center'>
          <Image
-            className='self-center mx-3'
+            className='self-center mx-3 opt-img'
             src={swoleNaysh}
             alt='Workout app project'
             height={350}
