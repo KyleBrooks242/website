@@ -3,7 +3,7 @@ import { Post, getPosts } from "../../lib/blogUtil"
 import { CustomMDX } from "@/mdx-components"
 
 export async function generateStaticParams() {
-  const posts: Array<Post> = await getPosts()
+  const posts: Array<Post> = await getPosts();
 
   return posts.map((post: Post) => ({
     slug: post.slug,

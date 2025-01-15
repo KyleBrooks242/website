@@ -1,17 +1,19 @@
 import Image from 'next/image';
-import profilePic from '../../../public/KyleAbout.jpg'
+import profilePic from '../../../public/headshot.jpg'
 
 export default async function About() {
     return (
       <div className="grid grid-rows-[20px_1fr_20px] justify-items-center min-h-screen p-8 pb-20  sm:p-20 font-[family-name:var(--font-geist-sans)]">
         <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-          <Image
-            className='self-center'
+
+         <div className="avatar self-center">
+            <div className="ring-primary ring-offset-base-100 w-64 rounded-full ring ring-offset-2">
+            <Image
             src={profilePic}
             alt='Waiting for a bus in Soprabolzano'
-            width={300}
-            height={500}
           />
+            </div>
+         </div>
          <h1 className="h1">About Me</h1>
          <p>
             Hi. My name is Kyle. I was born in Easley, SC, and have spent the majority of my life in the south. I attended College of Charleston, receiving my B.S.
@@ -28,7 +30,7 @@ export default async function About() {
             Outside of that, there wasn't much. In college, many of my friends studied abroad- traveling to England, Ireland, Germany, and Spain. As an absolutely broke 
             college student who was paying his own way through college, this was out of my price range. In fact, I became an RA my sophomore through senior year in order 
             to afford housing. Besides my natural interest in Computer Science, one of the huge benefits I foresaw was the opportunities it would provide to afford traveling.
-            I took my first trip out of the country when I was 25. My brother and I did a 5 day hike through Peru, ending in Machu Pichu. Since then, I've ticked several more
+            I took my first trip out of the country when I was 25. My brother and I did a 5 day hike through Peru, ending in Machu Picchu. Since then, I've ticked several more
             countries off the list, but there are still countless places I hope to one day visit. 
           
           </p>

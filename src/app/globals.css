@@ -48,16 +48,10 @@ body {
   @apply text-4xl font-medium
 }
 
-/* .nav-links {
-  display: flex;
-  margin-right: .5rem;
-} */
 .navbar {
   max-width: var(--main-content);
-  justify-content: space-between;
-  padding-right: 2rem;
-  padding-left: 0;
-  margin-left: 0;
+  justify-content: start;
+
 }
 
 
