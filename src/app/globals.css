@@ -81,3 +81,7 @@ body {
 .prose a {
   @apply underline text-green-600 hover:text-blue-800 visited:text-green-600
 }
+
+.prose p {
+  margin-bottom: 1rem;
+}

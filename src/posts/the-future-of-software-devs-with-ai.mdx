@@ -14,7 +14,7 @@ This post started out as a joke-- I was creating my website and needed some dumm
 At my previous job, we weren't allowed to use AI (There are some caveats to this statement that I won't get into here). And to be honest, at the time I didn't feel like 
 delving into what seemed to be something that was wildly overhyped. Sure, I'd gone to ChatGPT and asked it a few questions (Plan a dog friendly 3 week trip to Acadia National Park)
 I don't remember which version I asked, but the results were... underwhelming. The schedule was questionable, had lots of repeated activities, and fact checking led to the discovery 
-that it was flat out lying about some things. I couldn't imagine turning to this tool to write code. I felt confident my job was safe. 
+that it was flat out lying about some things. I couldn't imagine turning to this tool to write code. I felt confident my job was safe.
 
 Cut to a year or so later, I'm trying to stand up a website and it came time to start working on the UX/UI side of things (my personal nightmnare). I found curiousity (and frustration) getting the better of me. 
 The dark and complicated world of css can lead a person to do some desparate things-- Even turning to a tool that many are claiming "Will put developers out of a job".
@@ -24,11 +24,10 @@ I was asking for more information about the `generateStaticParams()` function in
 that this code did NOT execute on the dev server (which I was running) and that I would need to build and deploy in order to see it in action. So I run `pnpm run build` and `pnpm run start`
 No dice. At this point, I turn to the documentation and find this:
 
-
 > - During next dev, `generateStaticParams` will be called when you navigate to a route.
  - During next build, `generateStaticParams` runs before the corresponding Layouts or Pages are generated.
 
- The issue ended up being where I had placed `generateStaticParams` in my code (continuing to fuel my annoyance at the fact every page must be named `page.ext`)
+The issue ended up being where I had placed `generateStaticParams` in my code (continuing to fuel my annoyance at the fact every page must be named `page.tsx`)
 
 Besides the occassional lie, I've been impressed. Granted, I've only been using it for a day now. Hardly enough time to form a valid opinion on something.
 I'll come back to this post at a later date with more experneinces and thoughts. 
