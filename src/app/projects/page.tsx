@@ -27,7 +27,7 @@ export default async function Projects() {
          <p>
           Churdle is a copy of the popular Wordle word game. I decided to see how closely I could replicate it without looking at the source code or following 
           any sort of tutorial.  So it wasn't an <strong>exact</strong> copy, I instead made a 6 letter variation and started to implement the idea of a 'bomb letter'. As far as I know,
-          that was never fully finshed... so the results might be more explosive than intended. 
+          that was never fully finished... so the results might be more explosive than intended. 
          </p>
          <p>
           Churdle releases a new word four times a day, and keeps track of user stats via a browser cookie. 

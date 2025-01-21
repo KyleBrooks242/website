@@ -5,7 +5,7 @@ export default function Header () {
 
 
     return (
-        <div className="navbar bg-primary rounded-b-lg">
+        <div className="navbar bg-primary rounded-b-md">
           <a className="btn btn-ghost mx-0  text-base sm:text-sm md:text-xl lg:text-lg xl:text-xl">Kyle Brooks</a>
 
           <Link className="link link-hover nav-link pr-4" href='/'>
