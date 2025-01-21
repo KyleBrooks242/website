@@ -77,6 +77,9 @@ body {
 .prose h2 {
   @apply text-xl font-medium tracking-tight mt-6 mb-3;
 }
+.prose h3 {
+  @apply text-lg font-medium tracking-tight mt-6 mb-3;
+}
 
 .prose a {
   @apply underline text-green-600 hover:text-blue-800 visited:text-green-600

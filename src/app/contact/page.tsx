@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default async function Contact() {
     return (
-      <div className="grid grid-rows-[20px_1fr_20px] justify-items-center min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <div className="grid grid-rows-[20px_1fr_20px] justify-items-center  p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
         <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
           <Link className='btn btn-primary mt-8 w-28 self-center' href='https://linkedin.com/in/kyle-brooks-a05053bb' target='_blank'>LinkedIn</Link>
           <Link className='btn btn-secondary w-28 self-center' href='https://github.com/KyleBrooks242' target='_blank'>Github</Link>
