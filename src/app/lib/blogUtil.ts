@@ -8,6 +8,7 @@ export type Post = {
     date: string
     body: string
     published: boolean
+    title: string,
     // tags: string[]
     // lastModified?: number
     // views?: number
