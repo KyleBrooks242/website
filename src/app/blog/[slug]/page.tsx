@@ -12,7 +12,7 @@ export async function generateStaticParams() {
 }
 
 export default async function Blog({ params } : any) {
-  let posts: Array<Post> = await getPosts();
+  const posts: Array<Post> = await getPosts();
   posts.sort((a: Post, b: Post) => {
     if (
         new Date(a.date) < new Date(b.date)
