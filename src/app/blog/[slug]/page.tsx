@@ -1,34 +1,37 @@
 import { notFound } from "next/navigation"
-import { Post, getPosts } from "../../lib/blogUtil"
+import { Post, getPost, getPosts } from "../../lib/blogUtil"
 import { CustomMDX } from "@/mdx-components"
 import BlogFooter from "@/app/components/BlogFooter"
 
+
 export async function generateStaticParams() {
-  const posts: Array<Post> = await getPosts();
+  console.log('Inside generateStaticParams');
+  let posts: Array<Post> = await getPosts();
 
-  return posts.map((post: Post) => ({
-    slug: post.slug,
-  }))
-}
-
-export default async function Blog({ params } : any) {
-  const posts: Array<Post> = await getPosts();
   posts.sort((a: Post, b: Post) => {
     if (
         new Date(a.date) < new Date(b.date)
     ) {
-        return - 1
+        return - 1;
     }
-    return 1
-    })
-  const { slug } = await params;
-  
-  const postIdx = posts.findIndex((post) => post.slug === slug);
-  const post = posts[postIdx];
-  const previous = posts[postIdx - 1] && posts[postIdx - 1].published ? posts[postIdx - 1] : undefined;
-  const next = posts[postIdx + 1] && posts[postIdx + 1].published ? posts[postIdx + 1]: undefined;
+    return 1;
+    });
 
-  if (!posts) {
+  return posts.map((post: Post) => (
+    {
+      slug: post.slug,
+    }))
+}
+
+export default async function Blog({ params } : any) {
+  //Destructuring happens immediately on an object, so the await has to be 
+  //done separately to ensure the promise is resolved before destructuring. 
+  const resolvedParams = await params;
+  const { slug } = resolvedParams;
+
+  const { post, previous, next } = await getPost(slug);
+  
+  if (!post) {
     notFound()
   }
 
