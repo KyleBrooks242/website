@@ -27,8 +27,6 @@ export default function BlogFooter (props: Props) {
     const prevTitle = truncate(props.previous?.title);
     const nextTitle = truncate(props.next?.title);
 
-    console.log(`PREV TITLE ${prevTitle}`);
-
     return (
         <footer className="footer p-3 rounded-t-md mt-auto">
             <nav className="flex flex-row justify-center w-full">

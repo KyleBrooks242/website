@@ -6,9 +6,10 @@ export default function Home() {
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
 
         {/* Add a disclaimer banner */}
-        <div role="alert" className="alert alert-warning">
+        <div role="alert" className="alert alert-info justify-items-center">
           <ExclamationTriangleIcon className="w-4 h-4 mr-1"/>
-          <span>This website is under active development. Thank you for understanding!</span>
+          <span>This website is under active development.</span>
+          <ExclamationTriangleIcon className="w-4 h-4 mr-1"/>
         </div>
 
         <h1 className='h1'>Welcome!</h1>
@@ -20,7 +21,7 @@ export default function Home() {
         </p>
         <p>
           The purpose of this site is a place for me to experiment and learn. Where possible, I'll be avoiding the blind copy/paste of
-          code snippits/configs/etc. that I've been so fond of in the past. Nothing is more frustrating than a jumbled mess of code and config files
+          code snippets/configs/etc. that I've been so fond of in the past. Nothing is more frustrating than a jumbled mess of code and config files
           that aren't building as expected/ rendering as intended and not knowing where to even begin looking to solve the problem.
         </p>
         <p>Check out my blog to follow the construction progress of this page!</p>

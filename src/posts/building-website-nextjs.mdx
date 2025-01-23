@@ -1,5 +1,5 @@
 ---
-title: Building a website with Next.js
+title: Building a Website with Next.js
 description: A dummy blog post for testing layout
 date: Jan 11, 2025
 slug: creating-website-with-next.js
@@ -70,9 +70,9 @@ I'd like to follow a pretty generic personal website structure
 
 `Next.js` utilizes a pattern where your file structure for pages maps to the routing structure of your app. For example:
 
-[TODO INSERT PICTURE HERE OF FILE STRUCTURE HERE]
+![Directory File Structure for Website](/blog/websiteDirectoryLayout.png)
 
-The root level `/page.tsx` corresponds to th homepage of your app `www.my-website/`
+The root level `/page.tsx` corresponds to the homepage of your app `www.my-website/`
 
 The `about/page.tsx` route would be `www.my-website/about/` and so on. 
 
@@ -84,11 +84,19 @@ If you need extra flexibility, each sub-directory can define its own custom `lay
 While I want this website to look nice and follow normal conventions, I also want to make sure it has a personal touch. The overarching goal of this website 
 is to market myself, but a big part of that is conveying who I am as a person. I don't want the end result to be stuffy and humorless. I wrote the 'Home' and 'About Me'
 pages with this in mind. I also just tried to stub out material as a bit of a visual representation of progress. At this point, I haven't added anything fancy 
-(pictures, themes, etc.)
+(pictures, themes, etc.). 
+
+For the blog portion of the page, I want to eventually store the posts in some service such as S3 or storage solution. But for now, I'll just store them in their own directory.
+
 
 ### Styling
 
-Now that we have some content to look at, it would be nice if the experience was pleasant. This is where my lack of knowledge becomes more apparent... 
+There are 2 major things I want to accomplish on the styling front
+
+* Cohesive Theme
+* Light/Dark Mode (That BOTH look good. Too often I run into webpages that have light/dark, but one or the other is clearly an afterthought)
+
+DaisyUI supports multiple themes and theme toggling via the use of a `Context`
 
 
 
