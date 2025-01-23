@@ -5,7 +5,7 @@ import BlogFooter from "@/app/components/BlogFooter"
 
 
 export async function generateStaticParams() {
-  let posts: Array<Post> = await getPosts();
+  const posts: Array<Post> = await getPosts();
 
   posts.sort((a: Post, b: Post) => {
     if (

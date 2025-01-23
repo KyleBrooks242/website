@@ -20,7 +20,7 @@ export const getPosts = cache(async (): Promise<Array<any>> => {
   console.debug('getPosts: Fetching posts...');
 
   const postDir = path.join(process.cwd(), './src/posts/');
-  let posts = await fs.readdir(postDir)
+  const posts = await fs.readdir(postDir)
 
   return Promise.all(
     posts
