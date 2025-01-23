@@ -20,7 +20,7 @@ export default {
   daisyui: {
     themes: [
       {
-        mytheme: {
+        dark: {
           primary: '#28536B', // Set your custom primary color here
           secondary: '#7EA8BE', // Optional: set other theme colors
           accent: '82B26C',
