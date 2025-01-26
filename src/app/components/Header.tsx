@@ -13,7 +13,6 @@ export default function Header () {
 )
 
   const handleThemeToggle = () => {
-    console.log('handling theme toggle!');
     setTheme(theme === lightTheme ? darkTheme : lightTheme);
   };
 
