@@ -6,7 +6,7 @@ export default function Home() {
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
 
         {/* Add a disclaimer banner */}
-        <div role="alert" className="flex flex-row alert bg-secondary justify-center">
+        <div role="alert" className="flex flex-row alert justify-center">
           <ExclamationTriangleIcon className="w-4 h-4 mr-1"/>
           <p>This website is under active development.</p>
           <ExclamationTriangleIcon className="w-4 h-4 mr-1"/>

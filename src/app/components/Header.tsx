@@ -11,7 +11,7 @@ import {
   SunIcon 
 } from "@heroicons/react/20/solid";
 
-const lightTheme = 'pastel';
+const lightTheme = 'retro';
 const darkTheme = 'dracula';
 
 export default function Header () {
@@ -22,12 +22,14 @@ export default function Header () {
     const newTheme = (theme === lightTheme) ? darkTheme : lightTheme
     setTheme(theme === lightTheme ? darkTheme : lightTheme);
     window.localStorage.setItem("theme", newTheme);
+    document?.querySelector("html")?.setAttribute("data-theme", newTheme);
   };
 
   useEffect(() => {
     const theme = window.localStorage.getItem('theme') || darkTheme;
     setTheme(theme)
     window.localStorage.setItem("theme", theme);
+    document?.querySelector("html")?.setAttribute("data-theme", theme);
 
   }, []);
 
@@ -65,9 +67,9 @@ export default function Header () {
 
           {(theme == lightTheme) 
             ?
-              <MoonIcon className="w-6" onClick={() => handleThemeToggle()}/> 
+              <MoonIcon className="w-6 ml-8" onClick={() => handleThemeToggle()}/> 
               :
-              <SunIcon className="w-6" onClick={() => handleThemeToggle()}/> 
+              <SunIcon className="w-6 ml-8" onClick={() => handleThemeToggle()}/> 
           }
       </div>
     )
