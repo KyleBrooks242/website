@@ -1,11 +1,40 @@
+"use client";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { HomeIcon, BookOpenIcon, QuestionMarkCircleIcon, ChartBarIcon, PaperClipIcon } from "@heroicons/react/20/solid";
+import { 
+  HomeIcon, 
+  BookOpenIcon, 
+  QuestionMarkCircleIcon, 
+  ChartBarIcon, 
+  PaperClipIcon, 
+  MoonIcon, 
+  SunIcon 
+} from "@heroicons/react/20/solid";
+
+const lightTheme = 'retro';
+const darkTheme = 'dracula';
 
 export default function Header () {
 
+  const [theme, setTheme] = useState<string>('dark');
+
+  const handleThemeToggle = () => {
+    const newTheme = (theme === lightTheme) ? darkTheme : lightTheme
+    setTheme(theme === lightTheme ? darkTheme : lightTheme);
+    window.localStorage.setItem("theme", newTheme);
+    document?.querySelector("html")?.setAttribute("data-theme", newTheme);
+  };
+
+  useEffect(() => {
+    const theme = window.localStorage.getItem('theme') || darkTheme;
+    setTheme(theme)
+    window.localStorage.setItem("theme", theme);
+    document?.querySelector("html")?.setAttribute("data-theme", theme);
+
+  }, []);
 
     return (
-        <div className="navbar bg-primary rounded-b-lg">
+        <div className="navbar bg-primary rounded-b-md">
           <a className="btn btn-ghost mx-0  text-base sm:text-sm md:text-xl lg:text-lg xl:text-xl">Kyle Brooks</a>
 
           <Link className="link link-hover nav-link pr-4" href='/'>
@@ -36,7 +65,12 @@ export default function Header () {
             <span className='hidden sm:inline'>Contact</span>
           </Link>
 
-
+          {(theme == lightTheme) 
+            ?
+              <MoonIcon className="w-6 ml-8" onClick={() => handleThemeToggle()}/> 
+              :
+              <SunIcon className="w-6 ml-8" onClick={() => handleThemeToggle()}/> 
+          }
       </div>
     )
 }

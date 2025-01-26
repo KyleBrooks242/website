@@ -20,7 +20,7 @@ export default {
   daisyui: {
     themes: [
       {
-        mytheme: {
+        dark: {
           primary: '#28536B', // Set your custom primary color here
           secondary: '#7EA8BE', // Optional: set other theme colors
           accent: '82B26C',
@@ -30,15 +30,10 @@ export default {
           success: '#36D399',
           warning: '#FBBD23',
           error: '#F87272',
-          maxWidth: {
-            'screen-sm': '640px',  // Apply for small screens
-            'screen-md': '768px',  // Apply for medium screens
-            'screen-lg': '1024px', // Apply for large screens
-            'screen-xl': '1280px', // Apply for extra-large screens
-          },
         },
 
       },
+      'retro'
     ],
   },
 } satisfies Config;

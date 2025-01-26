@@ -1,0 +1,157 @@
+---
+
+title: Building a Website with Angular
+description: A documentation of creating a website with Angular.js
+date: Jan 23, 2025
+slug: building-a-website-with-angular.js
+published: false
+
+---
+
+## Background
+
+It's been several years since I've touched Angular, so I'm excited to see what I remember as well as what new things
+have been added!
+
+
+## Comparing to React 
+
+One of the immediate differences between React and Angular is structure. Angular utilizes 
+an MVC architecture, creating a 'separation of concerns' and providing a rigid pattern for building.
+React, on the other hand, utilizes components with 'hooks' (useEffect, useState, etc.) that allow for manipulation all within the 
+same file.
+
+I'll be following along with the Angular tutorial provided on their website, then trying to redeploy
+my existing website as an Angular version
+
+## Components 
+
+Components are the building blocks of the application. They are comprised of 3 pieces:
+- Typescript class
+- CSS Styling
+- HTML Template
+
+CSS Styling can be done 'in-line' via the 'styles' attribute, or in a separate css file
+
+**Component Composition:** Of course, as your project becomes more complex, you'll want to build things 
+that are comprised of multiple components. In order to to this, you need composition. Angular 
+components can use the `imports` directive (right word?) when defining a component to specifiy additional
+components that they are comprised of. For example, a `car` component might be comprized of `wheels` component,
+an `engine` component, and so on.
+
+```javascript
+    @component({
+        selector: 'wheels',
+        template: `
+            rimSize: {{ rimSize }}
+            color: {{ color }}
+        `
+    })
+
+    export class WheelsComponent {
+        rimSize: 22
+        color: 'gold'
+    }
+
+    @component({
+        selector: 'engine'
+        template: `
+            type: {{ engineType }}
+            horsepower: {{ horsepower }}
+        `
+    })
+
+    export class EngineComponent {
+        engineType: 'V8',
+        horsepower: 350
+    }
+
+    @component({
+        selector: 'vehicle'
+        template: `
+            <engine />
+            <wheels /> 
+        `
+        imports: [EngineComponent, WheelsComponent]
+    })
+
+    export class VehicleComponent {}
+```
+
+Here, you can see the VehicleComponent is comprised of the Engine and Wheel components.
+
+**Conditonally displaying data:**
+
+What if you want to only display data if it exists? Or if it is greater than a certain value?
+That is where the `@if` syntax comes in. Much like any language, `@if` can be 
+utilized in the component template to conditionally display data. 
+
+```typescript
+    @component({
+        selector: 'conditional-example'
+        template: `
+            @if (isRaining) {
+                <p> It's raining outside! </p>
+            }
+            @else {
+                <p>It's not raining at the moment </p>
+            }
+            <p> 
+                Weather is unpredictable, but if/else logic is not! 
+            <p>
+        `
+    })
+```
+
+**Control Flow:** 
+
+Similar to a `for` loop, but for components, is the control flow. You can  use it
+to iterate over data, components, etc. 
+
+**Property Binding:**
+
+In order to bind to an element's attributes, you can wrap the attribute 
+in `[]` e.g.
+
+```typescript
+    <img alt="photo" [src]="imageURL">
+```
+
+
+**Input and Output Directives**
+
+In order for a parent component to be able to pass data into a child component,
+the data/attributes in question must be defined within the child component
+with the `@Input` directive: 
+
+```typescript 
+    @component({
+        selector: 'input-component'
+        template: `
+            My name is {{ name }}
+        `
+    })
+    export class InputComponent {
+        @Input name = 'unknown'
+    }
+
+    //Usage
+    @Component({
+        selector: 'app-root',
+        template: `
+            <app-user name="Kyle" />
+        `,
+        imports: [UserComponent],
+    })
+    export class AppComponent {}
+```
+
+**Routing**
+
+For internal pages within your webpage, use `routerLink` instead of `href` to prevent full page reload
+Requires `RouterOutlet` and `RouterLink` 
+
+**Forms**
+
+For managing forms programatically, choose `ReactiveForms` over `TemplateForms`
+

@@ -27,7 +27,7 @@ export default async function Projects() {
          <p>
           Churdle is a copy of the popular Wordle word game. I decided to see how closely I could replicate it without looking at the source code or following 
           any sort of tutorial.  So it wasn't an <strong>exact</strong> copy, I instead made a 6 letter variation and started to implement the idea of a 'bomb letter'. As far as I know,
-          that was never fully finshed... so the results might be more explosive than intended. 
+          that was never fully finished... so the results might be more explosive than intended. 
          </p>
          <p>
           Churdle releases a new word four times a day, and keeps track of user stats via a browser cookie. 
@@ -51,16 +51,16 @@ export default async function Projects() {
          <p>
           I attempt to go to the gym on a regular schedule. Some months I do better than others. But a crucial piece of working out is recording your routines.
           There are plenty of apps you can download to track a workout, but I thought this would be a good opportunity to try and come up with something in react that used
-          a backend server for storing routines. In an ideal world, this would be someting developed as an iOS/ android app. Unfortuantely, I've never even scratched
+          a backend server for storing routines. In an ideal world, this would be something developed as an iOS/ android app. Unfortunately, I've never even scratched
           the surface of trying to develop mobile apps. It's been years since I wrote this, but the ReadMe is actually somewhat filled out! If I get it up and running
           again, I'll update this with more photos- The above was all I could scrounge up!
          </p>
 
          <p>
           Key features include 
-          - Authentication for individual users
-          - Ability to create/save/view workout routines
-          - Light and dark theming 
+          <li>Authentication for individual users</li>
+          <li>Ability to create/save/view workout routines</li>
+          <li>Light and dark theming </li>
          </p>
         </main>
       </div>
