@@ -19,8 +19,8 @@ export default async function Contact() {
 
         <h2 className='h2'>Not quite what you're looking for?</h2>
         <p>
-          If my resume isn't what you were hoping for, I'm not bitter 🥲 below are colleagues I've worked with that may be a better fit.
-          If you aren't on this list and want to be (and I like you), hit me up with your resume and I'll include it here
+          If my resume doesn't quite fit the bill, below are colleagues I've worked with that may be a better fit.
+          If you aren't on this list and want to be (and I like you), hit me up with your resume and I'll include it here!
         </p>
 
         <p> 🕺 All my friends are currently employed! 💃</p>
