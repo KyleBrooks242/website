@@ -2,6 +2,7 @@
 import Link from "next/link"
 import { Post, getPosts } from "../lib/blogUtil"
 
+
 export default async function BlogPosts() {
     let allBlogs: Array<Post> = await getPosts();
     allBlogs = allBlogs.filter(post => post.published == true).sort((a: Post, b: Post) => {
