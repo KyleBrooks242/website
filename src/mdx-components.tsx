@@ -61,7 +61,6 @@ function Code({ children, ...props }: any) {
   }
 }
 
-//@ts-ignore
 BrightCode.theme = {
   dark: "solarized-dark",
   light: "material-palenight",
