@@ -1,8 +1,9 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { MDXRemote } from 'next-mdx-remote/rsc'
-import { highlight } from 'sugar-high'
+import { highlight } from 'sugar-high';
 import React from 'react'
+import { Code as BrightCode} from 'bright';
 
 function Table({ data }: any) {
   const headers = data.headers.map((header: any, index: any) => (
@@ -49,8 +50,22 @@ function RoundedImage(props: any) {
 }
 
 function Code({ children, ...props }: any) {
-  const codeHTML = highlight(children)
-  return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />
+  const inline = !props.className
+  if (inline) {
+      const codeHTML = highlight(children)
+      return <code dangerouslySetInnerHTML={{ __html: codeHTML }} />
+  }
+  else {
+    return <BrightCode {...props}>{children}</BrightCode>
+
+  }
+}
+
+//@ts-ignore
+BrightCode.theme = {
+  dark: "solarized-dark",
+  light: "material-palenight",
+  lightSelector: '[data-theme="nord"]',
 }
 
 function slugify(str: any) {

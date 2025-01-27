@@ -13,8 +13,8 @@ import {
 import { SunIcon as SunIconOutline, MoonIcon as MoonIconOutline} from "@heroicons/react/24/outline"
 
 
-const lightTheme = 'retro';
-const darkTheme = 'dracula';
+const lightTheme = 'nord';
+const darkTheme = 'dark';
 
 export default function Header () {
 

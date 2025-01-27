@@ -9,7 +9,7 @@ published: true
 
 ## Background and Inspiration
 
-I've run into a fair amount of brilliant devs in my career. Most, if not all of them, have a webpage. 
+A common thread among all the developers I look up to is that just about every one of has their own webpage. 
 For some reason the thought of creating a webpage has always been daunting to me. 
 Not only do I lack an eye for UX/UI, but I also find myself quicly overwhelmed by the sheer number of options out there.
 It's 'easy' to turn to something such as [Wix](https://www.wix.com/), [SquareSpace](https://www.squarespace.com/), or [WordPress](https://wordpress.com/), and there's nothing wrong
@@ -38,25 +38,29 @@ I'm using the following stack for this project
 Before we begin- this post and the entire website were tremendously inspired by [this blog post](https://maxleiter.com/blog/build-a-blog-with-nextjs-13) by Max Leiter. 
 I tried not blatently rip off his design or copy/paste his code... but when it comes to styling, all bets are off! 
 
-*Quick Note: I prefer typescript where possible, so I will be using `.tsx` for my components*
+*Quick Note: I prefer typescript where possible, so I will be using **.tsx** for my components*
 
 Here's the approach I'm going to take:
 
-1. [Stand up bare-bones app using `create-next-app`](#create-next-app)
+1. [Stand up bare-bones app](#create-next-app)
 2. [Create structure of website](#create-structure-of-website)
-3. [Add some content. It doesn't have to be polished at this point.](#add-some-content)
+3. [Add some content.](#add-some-content)
 4. [Add minimal style. Enough so it doesn't hurt to look at.](#styling)
-5. Deploy project 
-6. Iterate
+5. [Deploy project](#deploy) 
+6. [Iterate](#iterate)
 
 
 ### Create-next-app
 
-This process feels almost identical to `create-react-app`. It was at this point I decided I'd give Tailwind a try, along with .mdx
+This process feels almost identical to 
+
+`create-react-app` 
+
+It was at this point I decided I'd give Tailwind a try, along with .mdx
 files for the blog posts (as prompted by the script). At this stage, I spent some time going over the next.js documentation, trying to familiarize myself with the basics. One thing
-that stood out to me very quickly as a bit annoying is the fact that every page has to be titled `page.tsx`. Trying to get dummy content in every page led to 
-multiple `page.tsx` files open in VSCode and lots of editing of the wrong file. It's very convenient from an orginizational standpoint to have the file structure of the projecte
-emulate the website layout, but I would love the option to be able to define the names of pages per route (perhaps in `next.config.ts`?)
+that stood out to me very quickly as a bit annoying is the fact that every page has to be titled **page.tsx**. Trying to get dummy content in every page led to 
+multiple **page.tsx** files open in VSCode and lots of editing of the wrong file. It's very convenient from an orginizational standpoint to have the file structure of the project
+emulate the website layout, but I would love the option to be able to define the names of pages per route (perhaps in **next.config.ts**?)
 
 ### Create Structure of Website
 
@@ -68,16 +72,16 @@ I'd like to follow a pretty generic personal website structure
 - About: Get to know me ( And my resume 😏 )
 - Contact: How to reach me
 
-`Next.js` utilizes a pattern where your file structure for pages maps to the routing structure of your app. For example:
+**Next.js** utilizes a pattern where your file structure for pages maps to the routing structure of your app. For example:
 
 ![Directory File Structure for Website](/blog/websiteDirectoryLayout.png)
 
-The root level `/page.tsx` corresponds to the homepage of your app `www.my-website/`
+The root level **/page.tsx** corresponds to the homepage of your app **www.my-website/**
 
-The `about/page.tsx` route would be `www.my-website/about/` and so on. 
+The **about/page.tsx** route would be **www.my-website/about/** and so on. 
 
-In addition to this intuitive approach to structure, there is also the `layout.tsx` file. This file, as the name implies, defines the layout of all sub pages.
-If you need extra flexibility, each sub-directory can define its own custom `layout.tsx` 
+In addition to this intuitive approach to structure, there is also the **layout.tsx** file. This file, as the name implies, defines the layout of all sub pages.
+If you need extra flexibility, each sub-directory can define its own custom **layout.tsx** 
 
 ### Add Some Content
 
@@ -94,9 +98,62 @@ For the blog portion of the page, I want to eventually store the posts in some s
 There are 2 major things I want to accomplish on the styling front
 
 * Cohesive Theme
-* Light/Dark Mode (That BOTH look good. Too often I run into webpages that have light/dark, but one or the other is clearly an afterthought)
+* Light/Dark Mode (That BOTH look good. Too often I run into webpages that have light/dark modes, but one or the other is clearly an afterthought)
 
-DaisyUI supports multiple themes and theme toggling via the use of a `Context`
+My inital thought was to use [a color generator like this](https://coolors.co/) to generate a cohesive 
+theme. But despite my best efforts, I wasn't pleased with the results. I decided the world would be better off if I chose from some pre-defined
+themes, courtesy of DaisyUI. 
+
+![Some of the themes offered by DaisyUI](/blog/daisyUIThemes.png)
+
+The photo above shows some of the many ready-to-go themes DaisyUI offers.
+I settled on 'nord' as my light option and a slightly tweaked variation of 'dark'.
+I wanted a toggle in my navbar, so instead of going the route of creating a `ThemeContext` and `ThemeProvider`, 
+I chose the simpler option of utilizing **document.querySelector** to grab the 
+**html** element and add the appropriate **data-theme** attribute
+
+```typescript
+"use client";
+import { useState, useEffect } from "react";
+...
+
+const lightTheme = 'nord';
+const darkTheme = 'dark';
+
+export default function NavBar () {
+
+  const [theme, setTheme] = useState<string>('dark');
+
+  const handleThemeToggle = () => {
+    const newTheme = (theme === lightTheme) ? darkTheme : lightTheme
+    setTheme(theme === lightTheme ? darkTheme : lightTheme);
+    window.localStorage.setItem("theme", newTheme);
+    document?.querySelector("html")?.setAttribute("data-theme", newTheme);
+  };
+
+  useEffect(() => {
+    const theme = window.localStorage.getItem('theme') || darkTheme;
+    setTheme(theme)
+    window.localStorage.setItem("theme", theme);
+    document?.querySelector("html")?.setAttribute("data-theme", theme);
+
+  }, []);
+  //Rest of component
+```
+
+### Deploy
+
+Vercel makes it incredibly easy to deploy your app. 
+
+### Iterate
+
+
+
+
+
+
+
+
 
 
 
