@@ -38,7 +38,7 @@ I'm using the following stack for this project
 Before we begin- this post and the entire website were tremendously inspired by [this blog post](https://maxleiter.com/blog/build-a-blog-with-nextjs-13) by Max Leiter. 
 I tried not blatently rip off his design or copy/paste his code... but when it comes to styling, all bets are off! 
 
-*Quick Note: I prefer typescript where possible, so I will be using **.tsx** for my components*
+*Quick Note: I prefer typescript where possible, so I will be using `.tsx` for my components*
 
 Here's the approach I'm going to take:
 
@@ -52,15 +52,11 @@ Here's the approach I'm going to take:
 
 ### Create-next-app
 
-This process feels almost identical to 
-
-`create-react-app` 
-
-It was at this point I decided I'd give Tailwind a try, along with .mdx
+This process feels almost identical to `create-react-app`. It was at this point I decided I'd give Tailwind a try, along with .mdx
 files for the blog posts (as prompted by the script). At this stage, I spent some time going over the next.js documentation, trying to familiarize myself with the basics. One thing
-that stood out to me very quickly as a bit annoying is the fact that every page has to be titled **page.tsx**. Trying to get dummy content in every page led to 
-multiple **page.tsx** files open in VSCode and lots of editing of the wrong file. It's very convenient from an orginizational standpoint to have the file structure of the project
-emulate the website layout, but I would love the option to be able to define the names of pages per route (perhaps in **next.config.ts**?)
+that stood out to me very quickly as a bit annoying is the fact that every page has to be titled `page.tsx`. Trying to get dummy content in every page led to 
+multiple `page.tsx` files open in VSCode and lots of editing of the wrong file. It's very convenient from an orginizational standpoint to have the file structure of the projecte
+emulate the website layout, but I would love the option to be able to define the names of pages per route (perhaps in `next.config.ts`?)
 
 ### Create Structure of Website
 
@@ -72,16 +68,16 @@ I'd like to follow a pretty generic personal website structure
 - About: Get to know me ( And my resume 😏 )
 - Contact: How to reach me
 
-**Next.js** utilizes a pattern where your file structure for pages maps to the routing structure of your app. For example:
+`Next.js` utilizes a pattern where your file structure for pages maps to the routing structure of your app. For example:
 
 ![Directory File Structure for Website](/blog/websiteDirectoryLayout.png)
 
-The root level **/page.tsx** corresponds to the homepage of your app **www.my-website/**
+The root level `/page.tsx` corresponds to the homepage of your app `www.my-website/`
 
-The **about/page.tsx** route would be **www.my-website/about/** and so on. 
+The `about/page.tsx` route would be `www.my-website/about/` and so on. 
 
-In addition to this intuitive approach to structure, there is also the **layout.tsx** file. This file, as the name implies, defines the layout of all sub pages.
-If you need extra flexibility, each sub-directory can define its own custom **layout.tsx** 
+In addition to this intuitive approach to structure, there is also the `layout.tsx` file. This file, as the name implies, defines the layout of all sub pages.
+If you need extra flexibility, each sub-directory can define its own custom `layout.tsx` 
 
 ### Add Some Content
 
@@ -109,8 +105,8 @@ themes, courtesy of DaisyUI.
 The photo above shows some of the many ready-to-go themes DaisyUI offers.
 I settled on 'nord' as my light option and a slightly tweaked variation of 'dark'.
 I wanted a toggle in my navbar, so instead of going the route of creating a `ThemeContext` and `ThemeProvider`, 
-I chose the simpler option of utilizing **document.querySelector** to grab the 
-**html** element and add the appropriate **data-theme** attribute
+I chose the simpler option of utilizing `document.querySelector` to grab the 
+`html` element and add the appropriate `data-theme` attribute
 
 ```typescript
 "use client";
@@ -143,10 +139,21 @@ export default function NavBar () {
 
 ### Deploy
 
-Vercel makes it incredibly easy to deploy your app. 
+Vercel makes it incredibly easy to deploy your app. After creating an account, I was directed through a quick process to link a project from GitHub. 
+After I selected my website repo, it auto-populated the `Framework Preset` to `Next.js`. Since my project is not nested, I left the root directory as the project root. I don't have any
+custom build commands or any env variables, so all that's left to do is click that juicy `Deploy` button and let Vercel take care of the rest!
+
+![Deploying a new app with vercel](/blog/deployingWithVercel.png)
+
+Within a few minutes, the build was complete. From the project dashboard, you can retrieve the custom domain name for your environment to view everything deployed as expected. If everything looks good, promoiting 
+to production is as easy as clicking a button! 
+
+![Promoting to Production](/blog/promoteToProduction.png)
+
+Each branch created in the project will get its own environment spun up with a unique domain name. Pushing new code automatically spins up a new build. 
+
 
 ### Iterate
-
 
 
 
