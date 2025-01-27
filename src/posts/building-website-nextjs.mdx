@@ -9,7 +9,7 @@ published: true
 
 ## Background and Inspiration
 
-I've run into a fair amount of brilliant devs in my career. Most, if not all of them, have a webpage. 
+A common thread among all the developers I look up to is that just about every one of has their own webpage. 
 For some reason the thought of creating a webpage has always been daunting to me. 
 Not only do I lack an eye for UX/UI, but I also find myself quicly overwhelmed by the sheer number of options out there.
 It's 'easy' to turn to something such as [Wix](https://www.wix.com/), [SquareSpace](https://www.squarespace.com/), or [WordPress](https://wordpress.com/), and there's nothing wrong
@@ -42,12 +42,12 @@ I tried not blatently rip off his design or copy/paste his code... but when it c
 
 Here's the approach I'm going to take:
 
-1. [Stand up bare-bones app using `create-next-app`](#create-next-app)
+1. [Stand up bare-bones app](#create-next-app)
 2. [Create structure of website](#create-structure-of-website)
-3. [Add some content. It doesn't have to be polished at this point.](#add-some-content)
+3. [Add some content.](#add-some-content)
 4. [Add minimal style. Enough so it doesn't hurt to look at.](#styling)
-5. Deploy project 
-6. Iterate
+5. [Deploy project](#deploy) 
+6. [Iterate](#iterate)
 
 
 ### Create-next-app
@@ -94,9 +94,73 @@ For the blog portion of the page, I want to eventually store the posts in some s
 There are 2 major things I want to accomplish on the styling front
 
 * Cohesive Theme
-* Light/Dark Mode (That BOTH look good. Too often I run into webpages that have light/dark, but one or the other is clearly an afterthought)
+* Light/Dark Mode (That BOTH look good. Too often I run into webpages that have light/dark modes, but one or the other is clearly an afterthought)
 
-DaisyUI supports multiple themes and theme toggling via the use of a `Context`
+My inital thought was to use [a color generator like this](https://coolors.co/) to generate a cohesive 
+theme. But despite my best efforts, I wasn't pleased with the results. I decided the world would be better off if I chose from some pre-defined
+themes, courtesy of DaisyUI. 
+
+![Some of the themes offered by DaisyUI](/blog/daisyUIThemes.png)
+
+The photo above shows some of the many ready-to-go themes DaisyUI offers.
+I settled on 'nord' as my light option and a slightly tweaked variation of 'dark'.
+I wanted a toggle in my navbar, so instead of going the route of creating a `ThemeContext` and `ThemeProvider`, 
+I chose the simpler option of utilizing `document.querySelector` to grab the 
+`html` element and add the appropriate `data-theme` attribute
+
+```typescript
+"use client";
+import { useState, useEffect } from "react";
+...
+
+const lightTheme = 'nord';
+const darkTheme = 'dark';
+
+export default function NavBar () {
+
+  const [theme, setTheme] = useState<string>('dark');
+
+  const handleThemeToggle = () => {
+    const newTheme = (theme === lightTheme) ? darkTheme : lightTheme
+    setTheme(theme === lightTheme ? darkTheme : lightTheme);
+    window.localStorage.setItem("theme", newTheme);
+    document?.querySelector("html")?.setAttribute("data-theme", newTheme);
+  };
+
+  useEffect(() => {
+    const theme = window.localStorage.getItem('theme') || darkTheme;
+    setTheme(theme)
+    window.localStorage.setItem("theme", theme);
+    document?.querySelector("html")?.setAttribute("data-theme", theme);
+
+  }, []);
+  //Rest of component
+```
+
+### Deploy
+
+Vercel makes it incredibly easy to deploy your app. After creating an account, I was directed through a quick process to link a project from GitHub. 
+After I selected my website repo, it auto-populated the `Framework Preset` to `Next.js`. Since my project is not nested, I left the root directory as the project root. I don't have any
+custom build commands or any env variables, so all that's left to do is click that juicy `Deploy` button and let Vercel take care of the rest!
+
+![Deploying a new app with vercel](/blog/deployingWithVercel.png)
+
+Within a few minutes, the build was complete. From the project dashboard, you can retrieve the custom domain name for your environment to view everything deployed as expected. If everything looks good, promoiting 
+to production is as easy as clicking a button! 
+
+![Promoting to Production](/blog/promoteToProduction.png)
+
+Each branch created in the project will get its own environment spun up with a unique domain name. Pushing new code automatically spins up a new build. 
+
+
+### Iterate
+
+
+
+
+
+
+
 
 
 

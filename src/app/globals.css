@@ -61,11 +61,7 @@ body {
   }
 }
 
-
-
 /* END MAIN CONTENT STYLING  */
-
-
 
 
 
@@ -87,4 +83,20 @@ body {
 
 .prose p {
   margin-bottom: 1rem;
+}
+
+.prose img {
+  max-width: 75%;
+  height: auto;
+}
+
+.prose pre {
+  overflow-x: auto;
+  max-width: 100%
+}
+
+.prose code {
+  /* display: block; */
+  white-space: pre-wrap; /* Wrap long lines if needed */
+  word-break: break-word; /* Break words when necessary */
 }
