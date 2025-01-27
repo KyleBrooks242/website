@@ -75,8 +75,8 @@ export default function Header () {
               }
             <input type="checkbox" className="toggle toggle-sm sm:toggle-md rounded-xl" checked={theme === lightTheme} onChange={() => handleThemeToggle()} />
               {theme == lightTheme ?
-                <SunIcon className="sm:w-4 md:w-6 w-4 h-4 mr-1"/> :
-                <SunIconOutline className="sm:w-4 md:w-6 w-4 h-4 mr-1"/> 
+                <SunIcon className="sm:w-4 md:w-6 w-4 h-4 ml-1"/> :
+                <SunIconOutline className="sm:w-4 md:w-6 w-4 h-4 ml-1"/> 
               }
             </label>
           </div>

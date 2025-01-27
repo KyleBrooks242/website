@@ -8,7 +8,7 @@ export default function Home() {
         {/* Add a disclaimer banner */}
         <div role="alert" className="flex flex-row alert justify-center">
           <ExclamationTriangleIcon className="w-4 h-4 mr-1"/>
-          <p>This website is under active development.</p>
+          <p>Construction in Progress</p>
           <ExclamationTriangleIcon className="w-4 h-4 mr-1"/>
         </div>
 

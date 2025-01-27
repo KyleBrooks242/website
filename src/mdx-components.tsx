@@ -49,6 +49,12 @@ function RoundedImage(props: any) {
   return <Image alt={props.alt} className="rounded-lg" {...props} />
 }
 
+BrightCode.theme = {
+  dark: "solarized-dark",
+  light: "material-palenight",
+  lightSelector: '[data-theme="nord"]',
+}
+
 function Code({ children, ...props }: any) {
   const inline = !props.className
   if (inline) {
@@ -57,15 +63,9 @@ function Code({ children, ...props }: any) {
   }
   else {
     return <BrightCode {...props}>{children}</BrightCode>
-
   }
 }
 
-BrightCode.theme = {
-  dark: "solarized-dark",
-  light: "material-palenight",
-  lightSelector: '[data-theme="nord"]',
-}
 
 function slugify(str: any) {
   return str
