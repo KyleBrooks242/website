@@ -19,7 +19,7 @@ const footerLinks = [
 
 const getFooterLinks = () => {
     return footerLinks.map(link => {
-        return <Link key={link.text} className='btn btn-sm btn-outline w-28' href={link.href} target='_blank'>{link.text}</Link>
+        return <Link key={link.text} className='btn glass btn-sm btn-outline w-28' href={link.href} target='_blank'>{link.text}</Link>
     })
 }
 
