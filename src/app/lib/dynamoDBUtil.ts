@@ -9,12 +9,12 @@ const tableName = process.env['BLOG_COMMENT_TABLE_NAME'] || "";
 
 export const getCommentsForPost = cache(async (slug: string): Promise<Array<BlogComment>> => {
 
+    console.debug(`Fetching comments for ${slug}`)
     const statement = `SELECT * FROM "${tableName}" WHERE Slug = ?`
     const command = new ExecuteStatementCommand({
         Statement: statement,
         Parameters: [slug]
     })
-
 
     // return ([
     //     {
@@ -36,9 +36,6 @@ export const getCommentsForPost = cache(async (slug: string): Promise<Array<Blog
     //         comment: "Kyle is the best dev I have ever seen!"
     //     }
     // ])
-
-    //TODO UNCOMMENT
-
 
     const response: any = await documentClient.send(command);
 

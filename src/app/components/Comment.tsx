@@ -6,7 +6,7 @@ interface Props {
     dateAdded: number
 }
 
-export default function Comment(props: Props) {
+export const Comment = (props: Props) => {
 
     const formatDate = (date: number) => {
         return dayjs(date).format('MM-DD-YYYY');

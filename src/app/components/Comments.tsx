@@ -1,6 +1,6 @@
 
 import React from "react";
-import Comment from "@/components/Comment";
+import { Comment } from "@/components/Comment";
 import { getCommentsForPost } from "../lib/dynamoDBUtil";
 import { BlogComment } from "../interfaces";
 
@@ -13,9 +13,7 @@ interface Props {
 
 export default async function Comments(props: Props) {
 
-    console.log(props.slug);
-
-    let comments: Array<BlogComment> = await getCommentsForPost('creating-website-with-next.js');
+    const comments: Array<BlogComment> = await getCommentsForPost(props.slug);
 
     const formatComments = () => {
 

@@ -2,8 +2,10 @@ import { notFound } from "next/navigation"
 import { Post, getPost, getPosts } from "../../lib/blogUtil"
 import { CustomMDX } from "@/mdx-components"
 import BlogFooter from "@/app/components/BlogFooter"
-import Comments from "@/app/components/Comments";
+// import Comments from "@/app/components/Comments";
+import { Suspense, lazy } from "react";
 
+const Comments = lazy(() => import('../../components/Comments'))
 
 export async function generateStaticParams() {
   const posts: Array<Post> = await getPosts();
@@ -69,7 +71,9 @@ export default async function Blog({ params } : any) {
           <CustomMDX source={post.body} />
         </article>
         <BlogFooter previous={previous} next={next}/>
-        <Comments slug={slug} />
+        <Suspense fallback={<div>Loading Comments...</div>}>
+          <Comments slug={slug} />
+        </Suspense>
         </main>
       </div>
 
