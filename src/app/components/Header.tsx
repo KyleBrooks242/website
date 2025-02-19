@@ -50,7 +50,7 @@ export default function Header () {
           </Link>
 
 
-          <Link className="link link-hover nav-link pr-3" href='/projects'>
+          <Link className="link link-hover nav-link pr-3" href='/project'>
             <ChartBarIcon className="sm:w-4 md:w-6 w-4 h-4 mr-1"/>
             <span className='hidden sm:inline'>Projects</span>
           </Link>

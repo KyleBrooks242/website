@@ -1,34 +1,16 @@
 import { notFound } from "next/navigation"
 import { Post, getPost, getPosts } from "../../lib/blogUtil"
 import { CustomMDX } from "@/mdx-components"
-import BlogFooter from "@/app/components/BlogFooter"
-// import Comments from "@/app/components/Comments";
-import { Suspense, lazy } from "react";
+import PostFooter from "@/app/components/PostFooter"
+import Comments from "@/app/components/Comments";
+import { Suspense } from "react";
 
-const Comments = lazy(() => import('../../components/Comments'))
-
-export async function generateStaticParams() {
-  const posts: Array<Post> = await getPosts();
-
-  posts.sort((a: Post, b: Post) => {
-    if (
-        new Date(a.date) < new Date(b.date)
-    ) {
-        return - 1;
-    }
-    return 1;
-    });
-
-  return posts.map((post: Post) => (
-    {
-      slug: post.slug,
-    }))
-}
 
 export default async function Blog({ params } : any) {
   //Destructuring happens immediately on an object, so the await has to be 
   //done separately to ensure the promise is resolved before destructuring. 
   const resolvedParams = await params;
+  console.log(resolvedParams);
   const { slug } = resolvedParams;
 
   const { post, previous, next } = await getPost(slug);
@@ -48,14 +30,6 @@ export default async function Blog({ params } : any) {
             '@type': 'BlogPosting',
             headline: post.title,
             datePublished: post.date,
-            // image: post.metadata.image
-            //   ? `${baseUrl}${post.metadata.image}`
-            //   : `/og?title=${encodeURIComponent(post.metadata.title)}`,
-            // url: `${baseUrl}/blog/${post.slug}`,
-            // author: {
-            //   '@type': 'Person',
-            //   name: 'My Portfolio',
-            // },
           }),
         }}
       />
@@ -70,7 +44,7 @@ export default async function Blog({ params } : any) {
         <article className="prose">
           <CustomMDX source={post.body} />
         </article>
-        <BlogFooter previous={previous} next={next}/>
+        <PostFooter previous={previous} next={next} prefix={'blog'}/>
         <Suspense fallback={<div>Loading Comments...</div>}>
           <Comments slug={slug} />
         </Suspense>

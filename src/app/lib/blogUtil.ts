@@ -4,16 +4,18 @@ import fs from 'fs/promises';
 import { cache } from 'react';
 
 export type Post = {
-    slug: string
-    date: string
-    body: string
-    published: boolean
-    title: string,
-    // tags: string[]
-    // lastModified?: number
-    // views?: number
-    type: 'post'
-  }
+  slug: string
+  date: string
+  body: string
+  published: boolean
+  title: string,
+  // tags: string[]
+  // lastModified?: number
+  // views?: number
+  type: 'post'
+}
+
+const preFetchedPosts: any = {};
 
 
 export const getPosts = cache(async (): Promise<Array<any>> => {
@@ -29,6 +31,7 @@ export const getPosts = cache(async (): Promise<Array<any>> => {
         const filePath = `${postDir}${file}`
         const postContent = await fs.readFile(filePath, 'utf8')
         const { data, content } = matter(postContent)
+        preFetchedPosts[`${data.slug}`] = { ...data, body: content };
 
         return { ...data, body: content } as Post
       })
@@ -38,8 +41,12 @@ export const getPosts = cache(async (): Promise<Array<any>> => {
 export async function getPost(slug: string) {
   console.debug(`getPost: Fetching post with slug ${slug}`);
 
-  const unsortedPosts = await getPosts()
-  const posts = sortByDate(unsortedPosts, true)
+  if (!preFetchedPosts[slug]) {
+    console.log("No posts cached! fetching...")
+    await getPosts();
+  }
+
+  const posts = sortByDate(Object.values(preFetchedPosts), true);
 
   const postIdx = posts.findIndex((post) => post.slug === slug);
   const post = posts[postIdx];

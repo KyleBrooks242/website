@@ -7,7 +7,7 @@ import { cache } from "react";
 const documentClient = DynamoDBDocumentClient.from(new DynamoDBClient());
 const tableName = process.env['BLOG_COMMENT_TABLE_NAME'] || "";
 
-export const getCommentsForPost = cache(async (slug: string): Promise<Array<BlogComment>> => {
+export const getCommentsForPost = async (slug: string): Promise<Array<BlogComment>> => {
 
     console.debug(`Fetching comments for ${slug}`)
     const statement = `SELECT * FROM "${tableName}" WHERE Slug = ?`
@@ -16,37 +16,37 @@ export const getCommentsForPost = cache(async (slug: string): Promise<Array<Blog
         Parameters: [slug]
     })
 
-    // return ([
-    //     {
-    //         author: "Kyle Brooks",
-    //         slug: "creating-website-with-next.js",
-    //         dateAdded: 1738100180000,
-    //         comment: "Kyle is the best dev I have ever seen!"
-    //     },
-    //     {
-    //         author: "Diep Le",
-    //         slug: "creating-website-with-next.js",
-    //         dateAdded: 1738100179000,
-    //         comment: "I think the UI could be better.."
-    //     },
-    //     {
-    //         author: "Pedro Monier",
-    //         slug: "creating-website-with-next.js",
-    //         dateAdded: 1738096431000,
-    //         comment: "Kyle is the best dev I have ever seen!"
-    //     }
-    // ])
-
-    const response: any = await documentClient.send(command);
-
-    return response.Items.map((item: any) => {
-        return {
-            author: item.Author,
-            comment: item.Comment,
-            slug: item.Slug,
-            dateAdded: item.DateAdded
+    return ([
+        {
+            author: "Kyle Brooks",
+            slug: "creating-website-with-next.js",
+            dateAdded: 1738100180000,
+            comment: "There's no way these comments are being hardcoded.. right?"
+        },
+        {
+            author: "Diep Le",
+            slug: "creating-website-with-next.js",
+            dateAdded: 1738100179000,
+            comment: "I think the UI could be better..."
+        },
+        {
+            author: "Pedro Monier",
+            slug: "creating-website-with-next.js",
+            dateAdded: 1738096431000,
+            comment: "Kyle is a huge disappointment as a friend, but a great developer"
         }
-    })
+    ])
 
-})
+    // const response: any = await documentClient.send(command);
+
+    // return response.Items.map((item: any) => {
+    //     return {
+    //         author: item.Author,
+    //         comment: item.Comment,
+    //         slug: item.Slug,
+    //         dateAdded: item.DateAdded
+    //     }
+    // })
+
+}
 
